@@ -329,7 +329,7 @@ you should place your code here."
 
 ;; (global-git-commit-mode t)
 
-(global-set-key (kbd "C-'") 'company-complete)
+(global-set-key (kbd "C-;") 'company-complete)
 
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
@@ -339,21 +339,3 @@ you should place your code here."
 (setq c-default-style "k&r")
 
   )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (helm-cscope xcscope helm-gtags ggtags company-auctex auctex-latexmk auctex stickyfunc-enhance srefactor pyvenv pytest pyenv-mode py-yapf pip-requirements hy-mode helm-pydoc disaster cython-mode company-c-headers company-anaconda cmake-mode clang-format anaconda-mode pythonic f web-mode tagedit slim-mode scss-mode sass-mode less-css-mode jade-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data tss yaxception web-beautify json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl smeargle orgit magit-gitflow magit-gh-pulls helm-gitignore request gitignore-mode github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh marshal logito pcache ht evil-magit magit magit-popup git-commit with-editor helm-company helm-c-yasnippet company-statistics company-quickhelp company auto-yasnippet yasnippet ac-ispell auto-complete helm-flyspell auto-dictionary toc-org org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets htmlize gnuplot flycheck-pos-tip flycheck zonokai-theme zenburn-theme zen-and-art-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stekene-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme firebelly-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme colorsarenice-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme mmm-mode markdown-toc markdown-mode gh-md pangu-spacing find-by-pinyin-dired chinese-pyim chinese-pyim-basedict pos-tip ace-pinyin pinyinlib ace-jump-mode spaceline s paradox hydra highlight-numbers helm-projectile helm-make projectile pkg-info helm-flx flx-ido highlight package-build bind-key evil-lisp-state evil-iedit-state evil-anzu ws-butler window-numbering volatile-highlights vi-tilde-fringe powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-mode-manager epl helm-descbinds helm-ag google-translate golden-ratio flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit smartparens evil-indent-plus iedit evil-exchange evil-escape evil-args anzu clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent ace-window ace-link ace-jump-helm-line helm helm-core popup async which-key use-package spacemacs-theme quelpa evil eval-sexp-fu elisp-slime-nav define-word bind-map avy adaptive-wrap))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
