@@ -49,7 +49,8 @@ values."
      )
      ;; better-defaults
      emacs-lisp
-     chinese
+	 (chinese :variables
+			  chinese-enable-youdao-dict t)
      git
      ;; github
      markdown
@@ -360,6 +361,7 @@ you should place your code here."
 
 (spacemacs/set-leader-keys "cb" 'johnbear724/cmake-build)
 (spacemacs/set-leader-keys "ce" 'johnbear724/cmake-run)
+(spacemacs/set-leader-keys "oy" 'youdao-dictionary-search)
 
 ;; (spacemacs/toggle-indent-guide-globally-on)
 ;; (global-flycheck-mode)
