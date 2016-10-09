@@ -359,8 +359,8 @@ you should place your code here."
  (projectile-with-default-dir (projectile-project-root)
    (async-shell-command "run")))
 
-(spacemacs/set-leader-keys "cb" 'johnbear724/cmake-build)
-(spacemacs/set-leader-keys "ce" 'johnbear724/cmake-run)
+(spacemacs/set-leader-keys "ob" 'johnbear724/cmake-build)
+(spacemacs/set-leader-keys "or" 'johnbear724/cmake-run)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search)
 
 ;; (spacemacs/toggle-indent-guide-globally-on)
