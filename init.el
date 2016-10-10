@@ -359,9 +359,14 @@ you should place your code here."
  (projectile-with-default-dir (projectile-project-root)
    (async-shell-command "run")))
 
+(defun johnbear724/open-quick-notes ()
+  (interactive)
+  (find-file "c:/Users/john/Dropbox/Documents/Notes/quick_notes.org"))
+
 (spacemacs/set-leader-keys "ob" 'johnbear724/cmake-build)
 (spacemacs/set-leader-keys "or" 'johnbear724/cmake-run)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search)
+(spacemacs/set-leader-keys "on" 'johnbear724/open-quick-notes)
 
 ;; (spacemacs/toggle-indent-guide-globally-on)
 ;; (global-flycheck-mode)
@@ -380,6 +385,18 @@ you should place your code here."
 
 (setq-default c-basic-offset 4)
 (setq c-default-style "k&r")
+
+(with-eval-after-load 'org
+  (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+	 (sh . t)
+	 (python . t)
+	 (C . t)
+	 (js . t)
+	 ))
+  )
 
   )
 
