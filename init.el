@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+﻿;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -43,9 +43,10 @@ values."
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-complete-with-key-sequence nil
-                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-complete-with-key-sequence-delay 0
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-private-snippets-directory nil
+					  auto-completion-enable-help-tooltip t
      )
      ;; better-defaults
      emacs-lisp
@@ -72,6 +73,9 @@ values."
      python
      latex
 	 gtags
+	 (go :variables go-use-gometalinter t
+		 go-tab-width 4)
+	 johnbear724
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -344,59 +348,6 @@ you should place your code here."
 
 (spacemacs//set-monospaced-font   "Source code pro" "思源黑体 Regular" 16 18)
 ;; (spacemacs//set-monospaced-font   "Source code pro" "微软雅黑" 16 18)
-
-;; (defun open-my-dotspacemacs()
-;;   (interactive)
-;;   (find-file "~/.spacemacs"))
-
-(defun johnbear724/cmake-build ()
-  (interactive)
-  (projectile-with-default-dir (projectile-project-root)
-	(async-shell-command "build")))
-
-(defun johnbear724/cmake-run ()
- (interactive)
- (projectile-with-default-dir (projectile-project-root)
-   (async-shell-command "run")))
-
-(defun johnbear724/open-quick-notes ()
-  (interactive)
-  (find-file "c:/Users/john/Dropbox/Documents/Notes/quick_notes.org"))
-
-(spacemacs/set-leader-keys "ob" 'johnbear724/cmake-build)
-(spacemacs/set-leader-keys "or" 'johnbear724/cmake-run)
-(spacemacs/set-leader-keys "oy" 'youdao-dictionary-search)
-(spacemacs/set-leader-keys "on" 'johnbear724/open-quick-notes)
-
-;; (spacemacs/toggle-indent-guide-globally-on)
-;; (global-flycheck-mode)
-
-;; NeoTree Setting
-;; (setq neo-vc-integration 'face)
-(setq neo-theme 'nerd)
-
-;; (global-git-commit-mode t)
-
-(global-set-key (kbd "C-;") 'company-complete)
-
-(setq-default indent-tabs-mode t)
-(setq-default tab-width 4)
-(setq-default default-tab-width 4)
-
-(setq-default c-basic-offset 4)
-(setq c-default-style "k&r")
-
-(with-eval-after-load 'org
-  (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(
-	 (sh . t)
-	 (python . t)
-	 (C . t)
-	 (js . t)
-	 ))
-  )
 
   )
 
