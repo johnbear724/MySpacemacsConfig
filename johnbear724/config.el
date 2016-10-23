@@ -35,4 +35,10 @@
 		  (lambda ()
 			(add-hook 'before-save-hook 'clang-format-buffer nil t)))
 
+(add-hook 'python-mode-hook
+		  (lambda ()
+			(add-hook 'before-save-hook 'johnbear724/yapfify-buffer nil t)))
+
 (setq flycheck-gometalinter-deadline "10s")
+
+(setq-default python-indent-offset 4)
