@@ -37,7 +37,9 @@
 
 (add-hook 'python-mode-hook
 		  (lambda ()
-			(add-hook 'before-save-hook 'johnbear724/yapfify-buffer nil t)))
+			(add-hook 'before-save-hook 'johnbear724/yapfiy-buffer-when-save-file nil t)))
+
+;; (add-hook 'python-mode-hook #'yapf-mode)
 
 (setq flycheck-gometalinter-deadline "10s")
 

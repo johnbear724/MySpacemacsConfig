@@ -40,6 +40,22 @@ Return the exit code."
   (with-current-buffer input-buffer
     (call-process-region (point-min) (point-max) "yapf" nil output-buffer)))
 
+(setq johnbear724-yapf-when-save-file t)
+
+(defun johnbear724/toggle-yapf-when-save-file()
+  (interactive)
+  (if johnbear724-yapf-when-save-file
+	  (progn (setq johnbear724-yapf-when-save-file nil)(message "yapf off"))
+	(progn (setq johnbear724-yapf-when-save-file t)(message "yapf on"))
+	))
+
+;;;###autoload
+(defun johnbear724/yapfiy-buffer-when-save-file()
+  (interactive)
+  (if johnbear724-yapf-when-save-file
+	  (johnbear724/yapfify-buffer)
+	  ))
+
 ;;;###autoload
 (defun johnbear724/yapfify-buffer ()
   "Try to yapfify the current buffer.
