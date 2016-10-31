@@ -44,3 +44,5 @@
 (setq flycheck-gometalinter-deadline "10s")
 
 (setq-default python-indent-offset 4)
+
+(setq flycheck-gometalinter-fast t)
