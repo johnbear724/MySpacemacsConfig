@@ -46,3 +46,8 @@
 (setq-default python-indent-offset 4)
 
 (setq flycheck-gometalinter-fast t)
+
+;; platform config : windows
+(setq w32-pipe-read-delay 0)
+
+(setq default-buffer-file-coding-system 'utf-8-unix)

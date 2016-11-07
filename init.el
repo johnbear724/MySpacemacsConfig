@@ -355,3 +355,6 @@ you should place your code here."
 ;; (spacemacs//set-monospaced-font   "Source code pro" "微软雅黑" 16 18)
 
   )
+
+;; Do not write anything past this comment. This is where Emacs will
+;; auto-generate custom variable definitions.

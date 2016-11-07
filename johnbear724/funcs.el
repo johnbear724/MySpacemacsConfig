@@ -1,8 +1,10 @@
+;; platform config
 (defun johnbear724/build ()
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
 	(async-shell-command "build")))
 
+;; platform config
 (defun johnbear724/run ()
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
@@ -13,6 +15,7 @@
 ;;   (johnbear724/my-mark-ring-push)
 ;;   (spacemacs/jump-to-definition))
 
+;; platform config
 (defun johnbear724/open-quick-notes ()
   (interactive)
   (find-file "c:/Users/john/Dropbox/Documents/Notes/quick_notes.org"))
@@ -33,6 +36,72 @@
   (interactive)
   (select-window-1)
   (spacemacs/toggle-maximize-buffer))
+
+;; platform config : widnows
+(defun johnbear724/go-rename (new-name)
+  "Rename the entity denoted by the identifier at point, using
+the `gorename' tool."
+  (interactive (list (read-string "New name: " (thing-at-point 'symbol))))
+  (if (not buffer-file-name)
+      (error "Cannot use go-rename on a buffer without a file name"))
+  ;; It's not sufficient to save the current buffer if modified,
+  ;; since if gofmt-before-save is on the before-save-hook,
+  ;; saving will disturb the selected region.
+  (if (buffer-modified-p)
+      (error "Please save the current buffer before invoking go-rename"))
+  ;; Prompt-save all other modified Go buffers, since they might get written.
+  (save-some-buffers nil #'(lambda ()
+                             (and (buffer-file-name)
+                                  (string= (file-name-extension (buffer-file-name)) ".go"))))
+
+  (async-shell-command (format "gorename -offset %s:#%d -to %s"
+							   (expand-file-name buffer-file-name)
+							   (1- (position-bytes (point)))
+							   new-name))
+  ;; (let* ((posflag (format "-offset=%s:#%d"
+  ;;                         (expand-file-name buffer-file-truename)
+  ;;                         (1- (go--position-bytes (point)))))
+  ;;        (env-vars (go-root-and-paths))
+  ;;        (goroot-env (concat "GOROOT=" (car env-vars)))
+  ;;        (gopath-env (concat "GOPATH=" (mapconcat #'identity (cdr env-vars) ":")))
+  ;;        success)
+  ;;   (with-current-buffer (get-buffer-create "*go-rename*")
+  ;;     (setq buffer-read-only nil)
+  ;;     (erase-buffer)
+  ;;     (let ((args (list go-rename-command nil t nil posflag "-to" new-name)))
+  ;;       ;; Log the command to *Messages*, for debugging.
+  ;;       (message "Command: %s:" args)
+  ;;       (message "Running gorename...")
+  ;;       ;; Use dynamic binding to modify/restore the environment
+  ;;       (setq success (zerop (let ((process-environment (list* goroot-env gopath-env process-environment)))
+  ;;                              (apply #'call-process args))))
+  ;;       (insert "\n")
+  ;;       (compilation-mode)
+  ;;       (setq compilation-error-screen-columns nil)
+
+  ;;       ;; On success, print the one-line result in the message bar,
+  ;;       ;; and hide the *go-rename* buffer.
+  ;;       (let ((w (display-buffer (current-buffer))))
+  ;;         (if success
+  ;;             (progn
+  ;;               (message "%s" (go--buffer-string-no-trailing-space))
+  ;;               (delete-window w))
+  ;;           ;; failure
+  ;;           (message "gorename exited")
+  ;;           (shrink-window-if-larger-than-buffer w)
+  ;;           (set-window-point w (point-min)))))))
+
+  ;; Reload the modified files, saving line/col.
+  ;; (Don't restore point since the text has changed.)
+  ;;
+  ;; TODO(adonovan): should we also do this for all other files
+  ;; that were updated (the tool can print them)?
+  (let ((line (line-number-at-pos))
+        (col (current-column)))
+    (revert-buffer t t t) ; safe, because we just saved it
+    (goto-char (point-min))
+    (forward-line (1- line))
+    (forward-char col)))
 
 (defun johnbear724/yapfify-call-bin (input-buffer output-buffer)
   "Call process yapf on INPUT-BUFFER saving the output to OUTPUT-BUFFER.
