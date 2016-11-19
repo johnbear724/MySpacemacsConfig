@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+﻿;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -37,21 +37,20 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ;; auto-completion
      (auto-completion :variables
-					  auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-sort-by-usage t
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-complete-with-key-sequence nil
                       auto-completion-complete-with-key-sequence-delay 0
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-private-snippets-directory nil
-					  auto-completion-enable-help-tooltip t
+                      auto-completion-enable-help-tooltip t
      )
      ;; better-defaults
      emacs-lisp
-	 (chinese :variables
-			  chinese-enable-youdao-dict t)
+     (chinese :variables
+              chinese-enable-youdao-dict t)
      git
      ;; github
      markdown
@@ -59,24 +58,29 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-	 (spell-checking :variables spell-checking-enable-by-default nil)
+     (spell-checking :variables spell-checking-enable-by-default nil)
      syntax-checking
      version-control
      javascript
-     typescript
+	 (typescript :variables
+				 typescript-fmt-on-save t)
      html
      semantic
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t
             )
-     python
+	 ;; (python :variables python-enable-yapf-format-on-save t)
+	 python
+	 (rust :variables
+		   rust-format-on-save t)
      latex
-	 gtags
-	 cscope
-	 (go :variables go-use-gometalinter t
-		 go-tab-width 4)
-	 johnbear724
+     gtags
+     cscope
+     (go :variables
+         go-use-gometalinter t
+         go-tab-width 4)
+     johnbear724
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -86,7 +90,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(pangu-spacing)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -167,6 +171,11 @@ values."
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
+   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
+   ;; (default "SPC")
+   dotspacemacs-emacs-command-key "SPC"
+   ;; The key used for Vim Ex commands (default ":")
+   dotspacemacs-ex-command-key ":"
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
    dotspacemacs-emacs-leader-key "M-m"
@@ -174,18 +183,15 @@ values."
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m)
+   ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
-   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
-   ;; (default "SPC")
-   dotspacemacs-emacs-command-key "SPC"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
    ;; Setting it to a non-nil value, allows for separate commands under <C-i>
    ;; and TAB or <C-m> and RET.
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
-   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-distinguish-gui-tab t
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
    dotspacemacs-remap-Y-to-y$ nil
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
@@ -347,7 +353,7 @@ you should place your code here."
 (setq powerline-default-separator 'slant)
 (spaceline-compile)
 
-(spacemacs//set-monospaced-font   "Source code pro" "Source Han Sans SC" 16 18)
+(spacemacs//set-monospaced-font   "Source code pro" "思源黑体 Regular" 16 18)
 ;; (spacemacs//set-monospaced-font   "Source code pro" "微软雅黑" 16 18)
 
   )

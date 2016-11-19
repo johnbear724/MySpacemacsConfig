@@ -15,6 +15,7 @@
 (setq c-default-style "k&r")
 
 (with-eval-after-load 'org
+  (setq org-startup-indented t)
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -35,4 +36,27 @@
 		  (lambda ()
 			(add-hook 'before-save-hook 'clang-format-buffer nil t)))
 
+(add-hook 'python-mode-hook
+		  (lambda ()
+			(add-hook 'before-save-hook 'johnbear724/yapfiy-buffer-when-save-file nil t)))
+
+;; (add-hook 'python-mode-hook #'yapf-mode)
+
 (setq flycheck-gometalinter-deadline "10s")
+
+(setq-default python-indent-offset 4)
+
+(setq flycheck-gometalinter-fast t)
+
+;; platform config : windows
+(setq w32-pipe-read-delay 0)
+
+(setq default-buffer-file-coding-system 'utf-8-unix)
+
+;; (set-language-environment "UTF-8")
+;; (prefer-coding-system 'utf-8)
+
+;; (when (spacemacs/system-is-mswindows)
+;;   (set-language-environment "chinese-gbk")
+;;   (prefer-coding-system 'chinese-gbk)
+;;   )
