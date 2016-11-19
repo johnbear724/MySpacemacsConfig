@@ -1,12 +1,12 @@
 (defun johnbear724/build ()
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
-	(async-shell-command "build")))
+	(async-shell-command "./build.sh")))
 
 (defun johnbear724/run ()
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
-	(async-shell-command "run")))
+	(async-shell-command "./run.sh")))
 
 ;; (defun johnbear724/push-mark-and-goto-definition ()
 ;;   (interactive)
@@ -15,7 +15,7 @@
 
 (defun johnbear724/open-quick-notes ()
   (interactive)
-  (find-file "c:/Users/john/Dropbox/Documents/Notes/quick_notes.org"))
+  (find-file "/home/johnbear724/Documents/Dropbox/Documents/Notes/quick_notes.org"))
 
 (defun johnbear724/open-private-layers()
   (interactive)
