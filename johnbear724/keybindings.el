@@ -9,3 +9,4 @@
 ;; (spacemacs/set-leader-keys "ogd" 'johnbear724/push-mark-and-goto-definition)
 ;; (spacemacs/set-leader-keys "ogp" 'johnbear724/my-mark-ring-goto)
 (global-set-key (kbd "C-;") 'company-complete)
+(global-set-key (kbd "C-'") 'yas-expand)

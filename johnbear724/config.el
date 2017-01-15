@@ -42,11 +42,10 @@
 
 ;; (add-hook 'python-mode-hook #'yapf-mode)
 
-(setq flycheck-gometalinter-deadline "10s")
-
 (setq-default python-indent-offset 4)
 
 (setq flycheck-gometalinter-fast t)
+(setq flycheck-gometalinter-deadline "10s")
 
 ;; platform config : windows
 (setq w32-pipe-read-delay 0)
@@ -60,3 +59,5 @@
 ;;   (set-language-environment "chinese-gbk")
 ;;   (prefer-coding-system 'chinese-gbk)
 ;;   )
+
+(setq ls-lisp-dirs-first t)

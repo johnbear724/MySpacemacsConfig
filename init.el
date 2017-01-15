@@ -61,7 +61,9 @@ values."
      (spell-checking :variables spell-checking-enable-by-default nil)
      syntax-checking
      version-control
-     javascript
+     (javascript :variables
+				 javascript-disable-tern-port-files nil
+				 tern-command '("node" "C:/Users/john/AppData/Roaming/npm/node_modules/tern/bin/tern"))
 	 (typescript :variables
 				 typescript-fmt-on-save t)
      html
@@ -80,6 +82,7 @@ values."
      (go :variables
          go-use-gometalinter t
          go-tab-width 4)
+	 yaml
      johnbear724
      )
    ;; List of additional packages that will be installed without being
@@ -324,9 +327,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
 (setq configuration-layer--elpa-archives
-    '(("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
-      ("org-cn"   . "http://elpa.zilongshanren.com/org/")
-      ("gnu-cn"   . "http://elpa.zilongshanren.com/gnu/")))
+    '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
+      ("org-cn"   . "https://elpa.zilongshanren.com/org/")
+      ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
 
 ;; (dolist (charset '(kana han cjk-misc bopomofo))
 ;;   (set-fontset-font (frame-parameter nil 'font) charset
@@ -357,6 +360,9 @@ you should place your code here."
 ;; (spacemacs//set-monospaced-font   "Source code pro" "微软雅黑" 16 18)
 
   )
+
+(setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
+(load custom-file 'no-error 'no-message)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

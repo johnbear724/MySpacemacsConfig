@@ -1,4 +1,8 @@
 ;; platform config
+(setq dropbox-path "~/Dropbox/")
+(setq notes-path (format "%sDocuments/Notes" dropbox-path))
+
+;; platform config
 (defun johnbear724/build ()
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
@@ -15,10 +19,9 @@
 ;;   (johnbear724/my-mark-ring-push)
 ;;   (spacemacs/jump-to-definition))
 
-;; platform config
 (defun johnbear724/open-quick-notes ()
   (interactive)
-  (find-file "c:/Users/john/Dropbox/Documents/Notes/quick_notes.org"))
+  (dired notes-path))
 
 (defun johnbear724/open-private-layers()
   (interactive)
