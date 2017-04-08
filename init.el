@@ -83,7 +83,6 @@ values."
          go-use-gometalinter t
          go-tab-width 4)
 	 yaml
-	 imenu-list
      johnbear724
      )
    ;; List of additional packages that will be installed without being

@@ -37,7 +37,7 @@
 (defun johnbear724/switch-to-default-window-and-maximize ()
   "Switch to window 1 and maximize the window."
   (interactive)
-  (select-window-1)
+  (winum-select-window-1)
   (spacemacs/toggle-maximize-buffer))
 
 ;; platform config : widnows
