@@ -86,7 +86,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(cpputils-cmake)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -324,9 +324,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
 (setq configuration-layer--elpa-archives
-    '(("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
-      ("org-cn"   . "http://elpa.zilongshanren.com/org/")
-      ("gnu-cn"   . "http://elpa.zilongshanren.com/gnu/")))
+	  '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+		("org-cn"   . "http://elpa.emacs-china.org/org/")
+		("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
 ;; (dolist (charset '(kana han cjk-misc bopomofo))
 ;;   (set-fontset-font (frame-parameter nil 'font) charset
@@ -357,6 +357,9 @@ you should place your code here."
 ;; (spacemacs//set-monospaced-font   "Source code pro" "微软雅黑" 16 18)
 
   )
+
+(setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
+(load custom-file 'no-error 'no-message)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

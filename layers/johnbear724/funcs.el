@@ -1,4 +1,8 @@
 ;; platform config
+(setq dropbox-path "~/Documents/Dropbox/")
+(setq notes-path (format "%sDocuments/Notes" dropbox-path))
+
+;; platform config
 (defun johnbear724/build ()
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
@@ -18,7 +22,7 @@
 ;; platform config
 (defun johnbear724/open-quick-notes ()
   (interactive)
-  (find-file "/home/johnbear724/Documents/Dropbox/Documents/Notes/quick_notes.org"))
+  (dired notes-path))
 
 (defun johnbear724/open-private-layers()
   (interactive)
@@ -34,7 +38,7 @@
 (defun johnbear724/switch-to-default-window-and-maximize ()
   "Switch to window 1 and maximize the window."
   (interactive)
-  (select-window-1)
+  (winum-select-window-1)
   (spacemacs/toggle-maximize-buffer))
 
 ;; platform config : widnows

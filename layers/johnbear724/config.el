@@ -17,6 +17,11 @@
 (with-eval-after-load 'org
   (setq org-startup-indented t)
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+  ;; Use XeLaTeX to export PDF in Org-mode
+  (setq org-latex-pdf-process
+		'("xelatex -interaction nonstopmode -output-directory %o %f"
+		  "xelatex -interaction nonstopmode -output-directory %o %f"
+		  "xelatex -interaction nonstopmode -output-directory %o %f"))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '(
@@ -60,3 +65,22 @@
 ;;   (set-language-environment "chinese-gbk")
 ;;   (prefer-coding-system 'chinese-gbk)
 ;;   )
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (if (derived-mode-p 'c-mode 'c++-mode)
+                (cppcm-reload-all)
+              )))
+
+(setq ls-lisp-dirs-first t)
+(defun mydired-sort ()
+  "Sort dired listings with directories first."
+  (save-excursion
+    (let (buffer-read-only)
+      (forward-line 2) ;; beyond dir. header
+      (sort-regexp-fields t "^.*$" "[ ]*." (point) (point-max)))
+    (set-buffer-modified-p nil)))
+
+(defadvice dired-readin
+	(after dired-after-updating-hook first () activate)
+  "Sort dired listings with directories first before adding marks."
+  (mydired-sort))
