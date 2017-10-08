@@ -1,10 +1,11 @@
-;; platform config
+(defun johnbear724/get-notes-path ()
+  (format "%sDocuments/Notes" dropbox-path))
+
 (defun johnbear724/build ()
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
 	(async-shell-command "build")))
 
-;; platform config
 (defun johnbear724/run ()
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
@@ -15,14 +16,17 @@
 ;;   (johnbear724/my-mark-ring-push)
 ;;   (spacemacs/jump-to-definition))
 
-;; platform config
 (defun johnbear724/open-quick-notes ()
   (interactive)
-  (find-file "c:/Users/john/Dropbox/Documents/Notes/quick_notes.org"))
+  (dired (johnbear724/get-notes-path)))
 
 (defun johnbear724/open-private-layers()
   (interactive)
   (dired "~/.spacemacs.d/"))
+
+(defun johnbear724/open-home()
+  (interactive)
+  (dired "~/"))
 
 (defun johnbear724/switch-to-messages-buffer ()
   "Switch to the `*Messages*' buffer. Create it first if needed."
@@ -34,10 +38,10 @@
 (defun johnbear724/switch-to-default-window-and-maximize ()
   "Switch to window 1 and maximize the window."
   (interactive)
-  (select-window-1)
+  (winum-select-window-1)
   (spacemacs/toggle-maximize-buffer))
 
-;; platform config : widnows
+;; this is a fix function for widnows
 (defun johnbear724/go-rename (new-name)
   "Rename the entity denoted by the identifier at point, using
 the `gorename' tool."

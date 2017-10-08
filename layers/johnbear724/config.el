@@ -1,3 +1,25 @@
+(setq dropbox-path "~/Dropbox/")
+
+(cond
+ ((spacemacs/system-is-mswindows)
+  (setq w32-pipe-read-delay 0)
+  (progn
+	(
+
+	 )))
+ ((spacemacs/system-is-linux)
+  (setq dropbox-path "~/Documents/Dropbox/")
+  (progn
+	(
+
+	 )))
+ ((spacemacs/system-is-mac)
+  (progn
+	(
+
+	 )))
+ )
+
 ;; (spacemacs/toggle-indent-guide-globally-on)
 ;; (global-flycheck-mode)
 
@@ -17,6 +39,11 @@
 (with-eval-after-load 'org
   (setq org-startup-indented t)
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+  ;; Use XeLaTeX to export PDF in Org-mode
+  (setq org-latex-pdf-process
+		'("xelatex -interaction nonstopmode -output-directory %o %f"
+		  "xelatex -interaction nonstopmode -output-directory %o %f"
+		  "xelatex -interaction nonstopmode -output-directory %o %f"))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '(
@@ -42,14 +69,10 @@
 
 ;; (add-hook 'python-mode-hook #'yapf-mode)
 
-(setq flycheck-gometalinter-deadline "10s")
-
 (setq-default python-indent-offset 4)
 
 (setq flycheck-gometalinter-fast t)
-
-;; platform config : windows
-(setq w32-pipe-read-delay 0)
+(setq flycheck-gometalinter-deadline "10s")
 
 (setq default-buffer-file-coding-system 'utf-8-unix)
 
@@ -60,3 +83,5 @@
 ;;   (set-language-environment "chinese-gbk")
 ;;   (prefer-coding-system 'chinese-gbk)
 ;;   )
+
+(setq ls-lisp-dirs-first t)
