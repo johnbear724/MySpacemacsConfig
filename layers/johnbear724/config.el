@@ -55,19 +55,26 @@
 	 ))
   )
 
+;; ======
+;; Formart when save file
 (add-hook 'c-mode-hook
 		  (lambda ()
-			(add-hook 'before-save-hook 'clang-format-buffer nil t)))
+			(add-hook 'before-save-hook 'johnbear724/clang-format-when-save-file nil t)))
 
 (add-hook 'c++-mode-hook
 		  (lambda ()
-			(add-hook 'before-save-hook 'clang-format-buffer nil t)))
+			(add-hook 'before-save-hook 'johnbear724/clang-format-when-save-file nil t)))
 
 (add-hook 'python-mode-hook
 		  (lambda ()
 			(add-hook 'before-save-hook 'johnbear724/yapfiy-buffer-when-save-file nil t)))
 
 ;; (add-hook 'python-mode-hook #'yapf-mode)
+
+(setq johnbear724-yapf-when-save-file t)
+(setq johnbear724-clang-format-when-save-file t)
+;; Formart when save file
+;; ======
 
 (setq-default python-indent-offset 4)
 

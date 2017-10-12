@@ -107,19 +107,31 @@ the `gorename' tool."
     (forward-line (1- line))
     (forward-char col)))
 
+(defun johnbear724/toggle-clang-format-when-save-file()
+  (interactive)
+  (if johnbear724-yapf-when-save-file
+	  (progn (setq johnbear724-yapf-when-save-file nil)(message "clang-format when save file: off"))
+	(progn (setq johnbear724-yapf-when-save-file t)(message "clan-format when save file: on"))
+	))
+
+;;;###autoload
+(defun johnbear724/clang-format-when-save-file()
+  (interactive)
+  (if johnbear724-clang-format-when-save-file
+	  (clang-format-buffer)
+	))
+
 (defun johnbear724/yapfify-call-bin (input-buffer output-buffer)
   "Call process yapf on INPUT-BUFFER saving the output to OUTPUT-BUFFER.
 Return the exit code."
   (with-current-buffer input-buffer
     (call-process-region (point-min) (point-max) "yapf" nil output-buffer)))
 
-(setq johnbear724-yapf-when-save-file t)
-
 (defun johnbear724/toggle-yapf-when-save-file()
   (interactive)
   (if johnbear724-yapf-when-save-file
-	  (progn (setq johnbear724-yapf-when-save-file nil)(message "yapf off"))
-	(progn (setq johnbear724-yapf-when-save-file t)(message "yapf on"))
+	  (progn (setq johnbear724-yapf-when-save-file nil)(message "yapf when save file: off"))
+	(progn (setq johnbear724-yapf-when-save-file t)(message "yapf when save file: on"))
 	))
 
 ;;;###autoload

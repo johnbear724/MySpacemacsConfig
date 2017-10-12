@@ -1,3 +1,5 @@
+(spacemacs/declare-prefix "o" "johnbear724")
+
 (spacemacs/set-leader-keys "ob" 'johnbear724/build)
 (spacemacs/set-leader-keys "or" 'johnbear724/run)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search)
@@ -8,6 +10,10 @@
 (spacemacs/set-leader-keys "odn" 'johnbear724/open-quick-notes)
 (spacemacs/set-leader-keys "odp" 'johnbear724/open-private-layers)
 (spacemacs/set-leader-keys "odh" 'johnbear724/open-home)
+
+(spacemacs/declare-prefix "ot" "toggles")
+(spacemacs/set-leader-keys "otp" 'johnbear724/toggle-yapf-when-save-file)
+(spacemacs/set-leader-keys "otc" 'johnbear724/toggle-clang-format-when-save-file)
 
 ;; (spacemacs/declare-prefix "og" "goto")
 ;; (spacemacs/set-leader-keys "ogd" 'johnbear724/push-mark-and-goto-definition)
