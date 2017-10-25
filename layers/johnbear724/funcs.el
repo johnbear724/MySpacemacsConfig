@@ -109,9 +109,9 @@ the `gorename' tool."
 
 (defun johnbear724/toggle-clang-format-when-save-file()
   (interactive)
-  (if johnbear724-yapf-when-save-file
-	  (progn (setq johnbear724-yapf-when-save-file nil)(message "clang-format when save file: off"))
-	(progn (setq johnbear724-yapf-when-save-file t)(message "clan-format when save file: on"))
+  (if johnbear724-clang-format-when-save-file
+	  (progn (setq johnbear724-clang-format-when-save-file nil)(message "clang-format when save file: off"))
+	(progn (setq johnbear724-clang-format-when-save-file t)(message "clan-format when save file: on"))
 	))
 
 ;;;###autoload
@@ -138,7 +138,7 @@ Return the exit code."
 (defun johnbear724/yapfiy-buffer-when-save-file()
   (interactive)
   (if johnbear724-yapf-when-save-file
-	  (johnbear724/yapfify-buffer)
+	  (yapfify-buffer)
 	  ))
 
 ;;;###autoload
