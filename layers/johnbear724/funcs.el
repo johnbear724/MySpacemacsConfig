@@ -138,7 +138,7 @@ Return the exit code."
 (defun johnbear724/yapfiy-buffer-when-save-file()
   (interactive)
   (if johnbear724-yapf-when-save-file
-	  (yapfify-buffer)
+	  (johnbear724/yapfify-buffer)
 	  ))
 
 ;;;###autoload
