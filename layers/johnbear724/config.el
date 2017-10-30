@@ -105,3 +105,5 @@
 	(after dired-after-updating-hook first () activate)
   "Sort dired listings with directories first before adding marks."
   (mydired-sort))
+
+(setq-default indent-tabs-mode nil)
