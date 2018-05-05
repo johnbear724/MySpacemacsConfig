@@ -1,15 +1,27 @@
 (defun johnbear724/get-notes-path ()
   (format "%sDocuments/Notes" dropbox-path))
 
+(defun johnbear724/run-command-in-project (cmd postfix)
+  (setq buffer-name (concat (projectile-project-root) postfix))
+  (when (get-buffer buffer-name)
+    (kill-buffer buffer-name))
+  (projectile-with-default-dir (projectile-project-root)
+	(async-shell-command cmd buffer-name))
+  )
+
+(defun johnbear724/get-script-cmd (script-name)
+  (if (spacemacs/system-is-mswindows)
+      (concat script-name ".bat")
+    (concat "./" script-name))
+  )
+
 (defun johnbear724/build ()
   (interactive)
-  (projectile-with-default-dir (projectile-project-root)
-	(async-shell-command "build")))
+  (johnbear724/run-command-in-project (johnbear724/get-script-cmd "build") "-build-results"))
 
 (defun johnbear724/run ()
   (interactive)
-  (projectile-with-default-dir (projectile-project-root)
-	(async-shell-command "run")))
+  (johnbear724/run-command-in-project (johnbear724/get-script-cmd "run") "-run-results"))
 
 ;; (defun johnbear724/push-mark-and-goto-definition ()
 ;;   (interactive)
