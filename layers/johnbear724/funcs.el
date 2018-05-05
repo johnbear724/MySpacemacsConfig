@@ -233,3 +233,10 @@ If yapf exits with an error, the output will be shown in a help-window."
 ;;     (johnbear724/my-pop-to-buffer-same-window (marker-buffer m))
 ;;     (goto-char m)
 ;;     (if (or (outline-invisible-p) (org-invisible-p2)) (message 'mark-goto))))
+
+(defun johnbear724/create-shell-buffer ()
+  (interactive)
+  (setq shell-buffer-name (concat default-directory "-shell"))
+  (when (get-buffer shell-buffer-name)
+    (kill-buffer shell-buffer-name))
+  (shell shell-buffer-name))

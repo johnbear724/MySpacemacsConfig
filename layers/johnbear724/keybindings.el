@@ -5,6 +5,7 @@
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search)
 (spacemacs/set-leader-keys "om" 'johnbear724/switch-to-messages-buffer)
 (spacemacs/set-leader-keys "ow" 'johnbear724/switch-to-default-window-and-maximize)
+(spacemacs/set-leader-keys "os" 'johnbear724/create-shell-buffer)
 
 (spacemacs/declare-prefix "od" "directries")
 (spacemacs/set-leader-keys "odn" 'johnbear724/open-quick-notes)
