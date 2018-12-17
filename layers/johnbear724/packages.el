@@ -30,10 +30,7 @@
 ;;; Code:
 
 (defconst johnbear724-packages
-  '(ob-go
-	(vue-mode :location (recipe
-						 :fetcher github
-						 :repo "codefalling/vue-mode")))
+  '(ob-go)
   "The list of Lisp packages required by the johnbear724 layer.
 
 Each entry is either:
@@ -63,7 +60,7 @@ Each entry is either:
 
 (defun johnbear724/init-ob-go ())
 
-(defun johnbear724/init-vue-mode ()
-  (use-package vue-mode))
+;;(defun johnbear724/init-vue-mode ()
+;;  (use-package vue-mode))
 
 ;;; packages.el ends here
